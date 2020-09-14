@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  mysql-demo-db:
+    image: mysql
+    ports:
+      - 5001:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=db_demousers
+  # demo-api:
+  #   image: openjdk:11
+  #   restart: on-failure
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - ./target/users_demo_backend-0.0.1-SNAPSHOT.jar:/usr/src/myapp/users_demo_backend-0.0.1-SNAPSHOT.jar
+  #   command:
+  #     ["java", "-jar", "/usr/src/myapp/users_demo_backend-0.0.1-SNAPSHOT.jar"]
+  #   depends_on:
+  #     - "mysql-demo-db"
+  # webui:
+  #   image: angulardemo:latest
+  #   ports:
+  #     - 4200:4200
+  #   working_dir: /usr/src/app
+  #   depends_on:
+  #     - "demo-api"
+  #   command: ["ng", "serve", "--host", "0.0.0.0"]
